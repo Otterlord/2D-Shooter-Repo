@@ -22,6 +22,8 @@ b = Vector2( -3100.31, 9.76163 )
 
 [node name="Player" parent="." index="0" instance=ExtResource( 1 )]
 
+position = Vector2( -85.9417, 89.6248 )
+
 [node name="Camera2D" type="Camera2D" parent="Player" index="3"]
 
 anchor_mode = 1
@@ -46,11 +48,10 @@ drag_margin_bottom = 0.1
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Drag Margin", "Transform" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." index="1"]
 
-editor/display_folded = true
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -59,33 +60,21 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
-
-position = Vector2( -8.35095, 156.998 )
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" index="1"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" index="0"]
 
 position = Vector2( 167.637, -40.6505 )
 shape = SubResource( 1 )
 one_way_collision = true
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" index="2"]
-
-position = Vector2( 457.183, 57.8365 )
-rotation = -0.426806
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" index="3"]
-
-position = Vector2( 930.173, -44.8426 )
-rotation = -0.000732034
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" index="4"]
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" index="1"]
 
 position = Vector2( 2542.43, -113.749 )
 shape = SubResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" index="2"]
+
+build_mode = 0
+polygon = PoolVector2Array( -381.927, 122.975, 559.748, 122.975, 893.692, -85.7401, 1287.8, -85.7401, 1269.38, 175.768, -390.521, 164.718 )
 
 [node name="Area2D" type="Area2D" parent="." index="2"]
 

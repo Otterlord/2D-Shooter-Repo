@@ -1,14 +1,14 @@
 extends KinematicBody2D
-var grv = 100
-var max_grv = 250
-var jmp = 1500
+var grv = 200
+var max_grv = 1000
+var jmp = 1700
 var min_grv = 10
 var min_jmp = 300
 
 var acc = 50
-var dec = 200
-var frc = 80
-var top = 1200
+var dec = 400
+var frc = 250
+var top = 1500
 var air = 1.2
 var drag = .8089
 var y_speed = 0
@@ -16,7 +16,7 @@ var y_speed = 0
 var floor_normal = Vector2(0,-1)
 var gsp = 0
 var rot = 0
-var rotspd = 13
+var rotspd = 10
 onready var sprite = get_node("Sprite")
 
 var velocity = Vector2(0,0)
@@ -42,7 +42,7 @@ func _process(delta):
 	floor_normal = get_floor_normal()
 	# rotate character
 	rot = -floor_normal.angle_to(Vector2(0,-1))
-	#sprite.rotation = lerp(sprite.rotation, rot, rotspd*delta)
+	sprite.rotation = lerp(sprite.rotation, rot, rotspd*delta)
 	if is_on_floor():
 		run(floor_normal.angle())
 	else:
@@ -96,3 +96,5 @@ func airMove():
 	if abs(gsp) > top:
 		gsp = top * sign(gsp)
 	y_speed += grv
+	if y_speed > max_grv:
+		y_speed = max_grv
